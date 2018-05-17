@@ -13,3 +13,7 @@ randToWord('ABCDE', 5, 0); // => 'ABCDE'
 
 randToWord('ABCDE', 3, 'X'); // => 'ABCXX'
 ```
+
+## Example
+
+[https://wizardly-turing-4a29f1.netlify.com/]()
