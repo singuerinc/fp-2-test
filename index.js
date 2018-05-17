@@ -1,9 +1,19 @@
-const { __, addIndex, map, range } = require('ramda');
-const mapIndexed = addIndex(map);
-const { randToWord } = require('./randToWord');
+import anime from 'animejs';
+import { words } from './words';
 
-const iterations = range(0, 6);
-const doRandToWord = word => (__, idx) => randToWord(word, idx, 0);
-const words = mapIndexed(doRandToWord("ABCDE"), iterations);
+const root = document.querySelector('#root');
 
-map(console.log, words); // => 00000 A0000 AB000 ABC00 ABCD0 ABCDE
+const WORDS = words('singuerinc');
+const totalWords = WORDS.length;
+
+anime({
+  duration: 1000,
+  easing: 'easeInOutExpo',
+  run: anim => {
+    const x = Math.floor(totalWords * (anim.progress * 0.01));
+    const next = WORDS[x];
+    if (root.textContent !== next) {
+      root.textContent = next;
+    }
+  }
+});
