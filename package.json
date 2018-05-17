@@ -1,0 +1,17 @@
+{
+  "name": "ramda-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "mocha -w randToWord.test.js"
+  },
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1",
+    "nodemon": "^1.17.4"
+  }
+}
