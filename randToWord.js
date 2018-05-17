@@ -1,11 +1,13 @@
-const { map, addIndex, lt, join } = require('ramda');
+const { __, always, map, equals, addIndex, lt, join, ifElse } = require('ramda');
 const mapIndexed = addIndex(map);
 
 const randToWord = (word, index, rndChar) => {
-  const char = (char, idx) => lt(idx, index) ? char : rndChar;
+  const space = always(' ');
+  const isSpace = equals(__, space());
+  const char = (char, idx) => (lt(idx, index) ? char : ifElse(isSpace, space, () => rndChar)(char));
   return join('', mapIndexed(char, word));
 };
 
 module.exports = {
   randToWord
-}
+};
